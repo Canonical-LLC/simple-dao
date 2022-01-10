@@ -21,8 +21,8 @@ $$
 LANGUAGE SQL;
 
 SELECT count_votes(E'\\x380eab015ac8e52853df3ac291f0511b8a1b7d9ee77248917eaeef10',
-  ARRAY[E'\\xee155ace9c40292074cb6aff8c9ccdd273c81648ff1149ef36bcea6ebb8a3e25' :: hash32type,
-        E'\\xbb30a42c1e62f0afda5f0a4e8a562f7a13a24cea00ee81917b86b89e801314aa',
-        E'\\xe88bd757ad5b9bedf372d8d3f0cf6c962a469db61a265f6418e1ffed86da29ec',
-        E'\\x642206314f534b29ad297d82440a5f9f210e30ca5ced805a587ca402de927342'],
+  ARRAY[E'\\x94ac4c62a94a6e776454b481d16ed04d98ff6235f7b6ff2d188ac8d6199b561a' :: hash32type,
+        E'\\xac73be5cfc34c33b956ae76b265c07b03cd902adceb298064051302fb9e9f400',
+        E'\\x0490e8f546440bad01fdaa9b78159f5df4066981a22669d9f3114c4578263ffd',
+        E'\\xe512abb47ac76180cc001f5bde2eaf239ab61383d049e8524ce9fd028572fa6c'],
         '2020-12-30 08:36:26');

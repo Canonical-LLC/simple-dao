@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
 thisDir=$(dirname "$0")
 baseDir=$thisDir/../
@@ -45,20 +45,14 @@ cardano-cli transaction build \
     --protocol-params-file scripts/$BLOCKCHAIN_PREFIX/protocol-parameters.json \
     --out-file $bodyFile
 
-echo "saved transaction to $bodyFile"
-
 cardano-cli transaction sign \
     --tx-body-file $bodyFile \
     --signing-key-file $proposerSigningKey \
     $BLOCKCHAIN \
     --out-file $outFile
 
-echo "signed transaction and saved as $outFile"
-
 cardano-cli transaction submit \
  $BLOCKCHAIN \
  --tx-file $outFile
 
-echo "submitted transaction"
-
-echo
+cardano-cli transaction txid --tx-body-file $bodyFile

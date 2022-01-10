@@ -8,6 +8,8 @@ mkdir -p $tempDir
 
 nftPolicyId=380eab015ac8e52853df3ac291f0511b8a1b7d9ee77248917eaeef10
 
+proposalId=$1
+
 voter1Address=$(cat ~/$BLOCKCHAIN_PREFIX/voter1.addr)
 voter1SigningKey=~/$BLOCKCHAIN_PREFIX/voter1.skey
 voter1NFT=$nftPolicyId.12
@@ -79,23 +81,23 @@ cardano-cli transaction build \
     $voter8Input \
     $voter9Input \
     --tx-out "$voter1Address + 1758582 lovelace + 1 $voter1NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 1) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 1) \
     --tx-out "$voter2Address + 1758582 lovelace + 1 $voter2NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 1) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 1) \
     --tx-out "$voter3Address + 1758582 lovelace + 1 $voter3NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 1) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 1) \
     --tx-out "$voter4Address + 1758582 lovelace + 1 $voter4NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 1) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 1) \
     --tx-out "$voter5Address + 1758582 lovelace + 1 $voter5NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 2) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 2) \
     --tx-out "$voter6Address + 1758582 lovelace + 1 $voter6NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 2) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 2) \
     --tx-out "$voter7Address + 1758582 lovelace + 1 $voter7NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 3) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 3) \
     --tx-out "$voter8Address + 1758582 lovelace + 1 $voter8NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 3) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 3) \
     --tx-out "$voter9Address + 1758582 lovelace + 1 $voter9NFT" \
-    --tx-out-datum-hash $($baseDir/hash-value.sh 4) \
+    --tx-out-datum-hash $($baseDir/hash-value.sh $proposalId 4) \
     --tx-out "$feePayerAddress + 1758582 lovelace $extraOutput" \
     --change-address $feePayerAddress \
     --protocol-params-file scripts/$BLOCKCHAIN_PREFIX/protocol-parameters.json \
